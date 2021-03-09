@@ -28,6 +28,8 @@ public class App {
                 .agg(count(col("Count")).alias("Total"))
                 .orderBy(desc("Total"));
 
+        countMnMDS.show(60, false);
+
         System.out.println(String.format("Total rows = %d", countMnMDS.count()));
 
         Dataset<Row> caCountMnMDS = mnmDS.select(col("State"), col("Color"), col("Count"))
